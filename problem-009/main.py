@@ -36,14 +36,6 @@ def less_naive_approach():
     
     return None
 
-# def trial_aproach():
-#     max = 1000
-#     squares = set()
-    
-#     for x in range(1,max+1):
-#         if x == math.isqrt(x) ** 2:
-#             squares.add(x)
-
 
 def main():
 
