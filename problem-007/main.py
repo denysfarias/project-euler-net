@@ -16,7 +16,7 @@ def search_primes(position):
         raise ValueError('position must be positive int')
     
     begin_with = 2
-    size = 64
+    size = 120000
     step = 2
 
     sieve = []
@@ -24,7 +24,7 @@ def search_primes(position):
 
     keep_searching = True
     while keep_searching:
-        new_primes, new_sieve = search_primes_on_interval(begin_with= begin_with, up_to= size, primes_before= primes, stop_on = position)
+        new_primes, new_sieve = search_primes_on_interval(begin_with= begin_with, up_to= size, primes_before= primes, stop_on_position= position)
 
         primes.extend(new_primes)
 
@@ -117,7 +117,7 @@ def find_primes_3(up_to):
     
     return primes
 
-def main():
+def comparing_primes():
     up_to = 10_000
 
     result = find_primes_1(up_to)
@@ -140,6 +140,15 @@ def main():
 
     print(f'{result=} in {stop-start} secs')
 
+def main():
+    position = 10_001
+
+    start = perf_counter()
+    primes = search_primes(position)
+    result = primes[-1]
+    stop = perf_counter()
+
+    print(f'{result=} in {stop-start} secs')
 
 if __name__ == "__main__":
     main()
